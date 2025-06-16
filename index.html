@@ -678,6 +678,18 @@
             padding: 6rem 0;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.03) 0%, transparent 70%);
         }
 
         .cta-section h2 {
@@ -685,15 +697,235 @@
             font-weight: 700;
             margin-bottom: 1rem;
             color: #ffffff;
+            position: relative;
+            z-index: 2;
         }
 
         .cta-section p {
             font-size: 1.2rem;
             color: #cccccc;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Waitlist Form Styles */
+        .waitlist-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            border: 2px solid transparent;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .waitlist-form::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0;
+        }
+
+
+        .form-group {
+            margin-bottom: 2rem;
+            text-align: left;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .form-group.required label::after {
+            content: ' *';
+            color: #ff4444;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.03);
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #666666;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-label {
+            display: block;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            color: #cccccc;
+            font-weight: 600;
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-label {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            border-color: #00ff88;
+            color: #000000;
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.15);
+        }
+
+        .radio-label:hover {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .conditional-field {
+            margin-top: 1rem;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .conditional-field.show {
+            opacity: 1;
+            max-height: 300px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-option {
+            position: relative;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            color: #cccccc;
+        }
+
+        .checkbox-label::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666666;
+            border-radius: 5px;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .checkbox-option input[type="checkbox"]:checked + .checkbox-label {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: #00ff88;
+            color: #ffffff;
+        }
+
+        .checkbox-option input[type="checkbox"]:checked + .checkbox-label::before {
+            background: #00ff88;
+            border-color: #00ff88;
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            color: #000000;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 204, 106, 0.1) 100%);
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .form-success h3 {
+            color: #00ff88;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .form-success p {
+            color: #cccccc;
+            margin: 0;
         }
 
         /* Footer */
@@ -758,7 +990,372 @@
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
+
+            .waitlist-form {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .form-group label {
+                font-size: 0.9rem;
+            }
+
+            .form-input {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .submit-btn {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
         }
+
+        /* Required field asterisk */
+        .required-asterisk {
+            color: #ff4444;
+            font-weight: bold;
+            margin-left: 4px;
+        }
+        /* Enhanced Form Success Styles */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 20px;
+            border: 2px solid #00ff88;
+            position: relative;
+            overflow: hidden;
+            animation: successSlideIn 0.8s ease-out;
+        }
+
+        .form-success::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes successSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .success-animation {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        /* Animated Cat Styles */
+        .cat-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .cat {
+            position: relative;
+            animation: catBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes catBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .cat-body {
+            position: relative;
+        }
+
+        .cat-head {
+            width: 80px;
+            height: 70px;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            border-radius: 50% 50% 45% 45%;
+            position: relative;
+            margin: 0 auto 10px;
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .cat-ears {
+            position: absolute;
+            top: -15px;
+            width: 100%;
+        }
+
+        .ear {
+            width: 20px;
+            height: 25px;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            border-radius: 50% 50% 0 0;
+            position: absolute;
+            animation: earWiggle 3s ease-in-out infinite;
+        }
+
+        .ear.left {
+            left: 15px;
+            transform: rotate(-20deg);
+        }
+
+        .ear.right {
+            right: 15px;
+            transform: rotate(20deg);
+        }
+
+        @keyframes earWiggle {
+            0%, 100% { transform: rotate(-20deg); }
+            50% { transform: rotate(-25deg); }
+        }
+
+        .ear.right {
+            animation-delay: 0.5s;
+        }
+
+        .cat-face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .eyes {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 8px;
+            justify-content: center;
+        }
+
+        .eye {
+            width: 8px;
+            height: 8px;
+            background: #000;
+            border-radius: 50%;
+            animation: blink 4s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 90%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.1); }
+        }
+
+        .nose {
+            width: 6px;
+            height: 5px;
+            background: #ff6b9d;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            margin: 0 auto 5px;
+        }
+
+        .mouth {
+            width: 20px;
+            height: 10px;
+            border: 2px solid #000;
+            border-top: none;
+            border-radius: 0 0 50% 50%;
+            margin: 0 auto;
+        }
+
+        .whiskers {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .whisker {
+            position: absolute;
+            width: 25px;
+            height: 1px;
+            background: #000;
+            border-radius: 1px;
+        }
+
+        .whisker.w1 { left: -35px; top: -3px; transform: rotate(-10deg); }
+        .whisker.w2 { left: -35px; top: 3px; transform: rotate(10deg); }
+        .whisker.w3 { right: -35px; top: -3px; transform: rotate(10deg); }
+        .whisker.w4 { right: -35px; top: 3px; transform: rotate(-10deg); }
+
+        .cat-paws {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 5px;
+        }
+
+        .paw {
+            width: 15px;
+            height: 20px;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            animation: pawWave 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pawWave {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+
+        .paw.right {
+            animation-delay: 0.5s;
+        }
+
+        .cat-tail {
+            position: absolute;
+            right: -25px;
+            top: 20px;
+            width: 30px;
+            height: 8px;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            border-radius: 50px;
+            transform-origin: left center;
+            animation: tailWag 1.5s ease-in-out infinite;
+        }
+
+        @keyframes tailWag {
+            0%, 100% { transform: rotate(10deg); }
+            50% { transform: rotate(-10deg); }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .particle.p1 { left: 10%; animation-delay: 0s; }
+        .particle.p2 { left: 20%; animation-delay: 0.5s; }
+        .particle.p3 { left: 80%; animation-delay: 1s; }
+        .particle.p4 { left: 90%; animation-delay: 1.5s; }
+        .particle.p5 { left: 60%; animation-delay: 2s; }
+        .particle.p6 { left: 40%; animation-delay: 2.5s; }
+
+        /* Success Content */
+        .success-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .success-content h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #00ff88;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 255, 136, 0.3);
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 0 2px 10px rgba(0, 255, 136, 0.3); }
+            100% { text-shadow: 0 2px 20px rgba(0, 255, 136, 0.6); }
+        }
+
+        .success-content p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .success-checkmark {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            border-radius: 50%;
+            color: #000;
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 60px;
+            margin-top: 1rem;
+            animation: checkmarkPulse 2s ease-in-out infinite;
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
+        }
+
+        @keyframes checkmarkPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .form-success {
+                padding: 3rem 1.5rem;
+                margin: 1rem;
+            }
+            
+            .cat-head {
+                width: 60px;
+                height: 55px;
+            }
+            
+            .success-content h3 {
+                font-size: 1.8rem;
+            }
+            
+            .success-content p {
+                font-size: 1.1rem;
+            }
+            
+            .success-checkmark {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -958,7 +1555,110 @@
         <div class="container">
             <h2 data-i18n="cta.title">Ready to Take Control?</h2>
             <p data-i18n="cta.description">Join users waiting for early access to StreamGuardian. Be among the first to experience safer, more comfortable streaming.</p>
-            <button class="cta-button" onclick="joinWaitlist()" data-i18n="cta.button">Join the Waitlist</button>
+            
+            <form class="waitlist-form" id="waitlistForm">
+                <div class="form-group">
+                    <label for="name" data-i18n="form.name.label">Your Name</label>
+                    <input type="text" id="name" name="name" class="form-input" data-i18n-placeholder="form.name.placeholder" placeholder="Enter your name (optional)">
+                </div>
+
+                <div class="form-group required">
+                    <label for="email" data-i18n="form.email.label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" data-i18n-placeholder="form.email.placeholder" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group required">
+                    <label data-i18n="form.role.label">I am a: <span class="required-asterisk">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="role-user" name="role" value="user" required>
+                            <label for="role-user" class="radio-label" data-i18n="form.role.user">User</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="role-company" name="role" value="company" required>
+                            <label for="role-company" class="radio-label" data-i18n="form.role.company">Company</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conditional-field" id="userReasons">
+                    <label data-i18n="form.reasons.label">Why do you need StreamGuardian?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="reason-sensitive" name="reasons" value="sensitive">
+                            <label for="reason-sensitive" class="checkbox-label" data-i18n="form.reasons.sensitive">Sensitive to disturbing content (anxiety, etc.)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="reason-kids" name="reasons" value="kids">
+                            <label for="reason-kids" class="checkbox-label" data-i18n="form.reasons.kids">Watching with children</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="reason-comfort" name="reasons" value="comfort">
+                            <label for="reason-comfort" class="checkbox-label" data-i18n="form.reasons.comfort">Not comfortable with R-rated content</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conditional-field" id="companyName">
+                    <label for="company" data-i18n="form.company.label">Company Name</label>
+                    <input type="text" id="company" name="company" class="form-input" data-i18n-placeholder="form.company.placeholder" placeholder="Enter your company name">
+                </div>
+
+                <button type="submit" class="submit-btn" data-i18n="form.submit">Join the Waitlist</button>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+                <div class="success-animation">
+                    <!-- Animated Cat -->
+                    <div class="cat-container">
+                        <div class="cat">
+                            <div class="cat-body">
+                                <div class="cat-head">
+                                    <div class="cat-ears">
+                                        <div class="ear left"></div>
+                                        <div class="ear right"></div>
+                                    </div>
+                                    <div class="cat-face">
+                                        <div class="eyes">
+                                            <div class="eye left"></div>
+                                            <div class="eye right"></div>
+                                        </div>
+                                        <div class="nose"></div>
+                                        <div class="mouth"></div>
+                                        <div class="whiskers">
+                                            <div class="whisker w1"></div>
+                                            <div class="whisker w2"></div>
+                                            <div class="whisker w3"></div>
+                                            <div class="whisker w4"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cat-paws">
+                                    <div class="paw left"></div>
+                                    <div class="paw right"></div>
+                                </div>
+                            </div>
+                            <div class="cat-tail"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Particles -->
+                    <div class="particles">
+                        <div class="particle p1">✨</div>
+                        <div class="particle p2">🎉</div>
+                        <div class="particle p3">⭐</div>
+                        <div class="particle p4">✨</div>
+                        <div class="particle p5">🎊</div>
+                        <div class="particle p6">⭐</div>
+                    </div>
+                </div>
+                
+                <div class="success-content">
+                    <h3 data-i18n="form.success.title">Welcome to StreamGuardian!</h3>
+                    <p data-i18n="form.success.message">Thank you for joining our waitlist. We'll notify you as soon as early access becomes available.</p>
+                    <div class="success-checkmark">✓</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1062,13 +1762,44 @@
                     description: "Join users waiting for early access to StreamGuardian. Be among the first to experience safer, more comfortable streaming.",
                     button: "Join the Waitlist"
                 },
+                form: {
+                    name: {
+                        label: "Your Name",
+                        placeholder: "Enter your name (optional)"
+                    },
+                    email: {
+                        label: "Email Address",
+                        placeholder: "Enter your email address"
+                    },
+                    role: {
+                        label: "I am a:",
+                        user: "User",
+                        company: "Company"
+                    },
+                    reasons: {
+                        label: "Why do you need StreamGuardian?",
+                        sensitive: "Sensitive to disturbing content (anxiety, etc.)",
+                        kids: "Watching with children",
+                        comfort: "Not comfortable with R-rated content"
+                    },
+                    company: {
+                        label: "Company Name",
+                        placeholder: "Enter your company name"
+                    },
+                    submit: "Join the Waitlist",
+                    success: {
+                        title: "Welcome to StreamGuardian!",
+                        message: "Thank you for joining our waitlist. We'll notify you as soon as early access becomes available."
+                    }
+                },
                 footer: {
                     copyright: "© 2025 StreamGuardian. All rights reserved. Formerly known as MoveIt."
                 },
                 alerts: {
                     emailPrompt: "Enter your email to join the waitlist:",
                     thankYou: "Thank you for joining the StreamGuardian waitlist! We'll notify you when early access is available.",
-                    invalidEmail: "Please enter a valid email address."
+                    invalidEmail: "Please enter a valid email address.",
+                    selectRole: "Please select whether you are a User or Company."
                 }
             },
             fr: {
@@ -1148,7 +1879,7 @@
                         description: "Protégez les enfants et les spectateurs sensibles du contenu dérangeant inattendu tout en maintenant les soirées cinéma en famille et les expériences de visionnage partagées."
                     },
                     corporations: {
-                        title: "Entreprises de Contenu",
+                        title: "Entreprises de Streaming",
                         description: "Assurez-vous que votre contenu respecte les réglementations locales et les normes culturelles lors de l'expansion vers de nouveaux marchés, évitant les problèmes de conformité coûteux."
                     },
                     sensitive: {
@@ -1161,13 +1892,44 @@
                     description: "Rejoignez les utilisateurs en attente d'un accès anticipé à StreamGuardian. Soyez parmi les premiers à expérimenter un streaming plus sûr et plus confortable.",
                     button: "Rejoindre la Liste d'Attente"
                 },
+                form: {
+                    name: {
+                        label: "Votre Nom",
+                        placeholder: "Entrez votre nom (optionnel)"
+                    },
+                    email: {
+                        label: "Adresse Email",
+                        placeholder: "Entrez votre adresse email"
+                    },
+                    role: {
+                        label: "Je suis :",
+                        user: "Utilisateur",
+                        company: "Entreprise"
+                    },
+                    reasons: {
+                        label: "Pourquoi avez-vous besoin de StreamGuardian ?",
+                        sensitive: "Sensible au contenu dérangeant (anxiété, etc.)",
+                        kids: "Regarder avec des enfants",
+                        comfort: "Pas à l'aise avec le contenu classé R"
+                    },
+                    company: {
+                        label: "Nom de l'Entreprise",
+                        placeholder: "Entrez le nom de votre entreprise"
+                    },
+                    submit: "Rejoindre la Liste d'Attente",
+                    success: {
+                        title: "Bienvenue chez StreamGuardian !",
+                        message: "Merci de rejoindre notre liste d'attente. Nous vous notifierons dès que l'accès anticipé sera disponible."
+                    }
+                },
                 footer: {
                     copyright: "© 2025 StreamGuardian. Tous droits réservés. Anciennement connu sous le nom de MoveIt."
                 },
                 alerts: {
                     emailPrompt: "Entrez votre email pour rejoindre la liste d'attente :",
                     thankYou: "Merci de rejoindre la liste d'attente StreamGuardian ! Nous vous notifierons quand l'accès anticipé sera disponible.",
-                    invalidEmail: "Veuillez entrer une adresse email valide."
+                    invalidEmail: "Veuillez entrer une adresse email valide.",
+                    selectRole: "Veuillez sélectionner si vous êtes un Utilisateur ou une Entreprise."
                 }
             }
         };
@@ -1194,6 +1956,9 @@
                     element.textContent = translation;
                 }
             });
+
+            // Update placeholders
+            updateLanguagePlaceholders();
         }
 
         // Get nested translation using dot notation
@@ -1262,20 +2027,84 @@
             });
         });
 
-        // Waitlist functionality with internationalization
-        function joinWaitlist() {
-            const emailPrompt = getNestedTranslation(translations[currentLanguage], 'alerts.emailPrompt');
-            const thankYou = getNestedTranslation(translations[currentLanguage], 'alerts.thankYou');
-            const invalidEmail = getNestedTranslation(translations[currentLanguage], 'alerts.invalidEmail');
+        // Waitlist form functionality
+        function initializeWaitlistForm() {
+            const form = document.getElementById('waitlistForm');
+            const userRoleRadio = document.getElementById('role-user');
+            const companyRoleRadio = document.getElementById('role-company');
+            const userReasons = document.getElementById('userReasons');
+            const companyName = document.getElementById('companyName');
+            const formSuccess = document.getElementById('formSuccess');
 
-            const email = prompt(emailPrompt);
-            if (email && email.includes('@')) {
-                alert(thankYou);
-                // Here you would typically send the email to your backend
-                console.log('Waitlist signup:', email);
-            } else if (email) {
-                alert(invalidEmail);
+            // Handle role selection to show/hide conditional fields
+            function handleRoleChange() {
+                if (userRoleRadio.checked) {
+                    userReasons.classList.add('show');
+                    companyName.classList.remove('show');
+                    document.getElementById('company').removeAttribute('required');
+                } else if (companyRoleRadio.checked) {
+                    userReasons.classList.remove('show');
+                    companyName.classList.add('show');
+                    document.getElementById('company').setAttribute('required', 'required');
+                }
             }
+
+            // Add event listeners for role changes
+            userRoleRadio.addEventListener('change', handleRoleChange);
+            companyRoleRadio.addEventListener('change', handleRoleChange);
+
+            // Handle form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name') || '',
+                    email: formData.get('email'),
+                    role: formData.get('role'),
+                    reasons: formData.getAll('reasons'),
+                    company: formData.get('company') || ''
+                };
+
+                // Validate email
+                if (!data.email || !data.email.includes('@')) {
+                    alert(getNestedTranslation(translations[currentLanguage], 'alerts.invalidEmail'));
+                    return;
+                }
+
+                // Validate role selection
+                if (!data.role) {
+                    alert(getNestedTranslation(translations[currentLanguage], 'alerts.selectRole') || 'Please select whether you are a User or Company.');
+                    return;
+                }
+
+                // Validate company name if company role is selected
+                if (data.role === 'company' && !data.company.trim()) {
+                    alert('Please enter your company name.');
+                    return;
+                }
+
+                // Here you would typically send the data to your backend
+                console.log('Waitlist signup:', data);
+
+                // Show success message
+                form.style.display = 'none';
+                formSuccess.style.display = 'block';
+                
+                // Scroll to success message
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
+        // Update language function to handle placeholders
+        function updateLanguagePlaceholders() {
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                const translation = getNestedTranslation(translations[currentLanguage], key);
+                if (translation) {
+                    element.setAttribute('placeholder', translation);
+                }
+            });
         }
 
         // Add scroll effect to header
@@ -1291,6 +2120,7 @@
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             initializeLanguage();
+            initializeWaitlistForm();
         });
     </script>
 </body>
