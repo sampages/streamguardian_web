@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,6 +60,39 @@
 
         .nav-links a:hover {
             color: #00ff88;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 4px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: #cccccc;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 40px;
+        }
+
+        .lang-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+            color: #000000;
+            box-shadow: 0 2px 10px rgba(0, 255, 136, 0.3);
         }
 
         /* Hero Section */
@@ -354,11 +387,11 @@
 
         .screenshots-container {
             position: relative;
-            height: 500px;
+            height: 700px;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -681,6 +714,15 @@
                 display: none;
             }
 
+            .language-toggle {
+                margin-left: auto;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
             .demo-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -725,11 +767,15 @@
         <nav class="nav">
             <div class="logo">StreamGuardian</div>
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#demo">Demo</a></li>
-                <li><a href="#corporate">Corporate</a></li>
-                <li><a href="#waitlist">Join Waitlist</a></li>
+                <li><a href="#features" data-i18n="nav.features">Features</a></li>
+                <li><a href="#demo" data-i18n="nav.demo">Demo</a></li>
+                <li><a href="#corporate" data-i18n="nav.corporate">Corporate</a></li>
+                <li><a href="#waitlist" data-i18n="nav.waitlist">Join Waitlist</a></li>
             </ul>
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+            </div>
         </nav>
     </header>
 
@@ -737,42 +783,42 @@
     <section class="hero">
         <div class="hero-content">
             <h1>
-                <span class="highlight-text">Watch what you want</span><span class="normal-text">,</span><br>
-                <span class="emphasis">not what you have to</span>
+                <span class="highlight-text" data-i18n="hero.title.highlight">Watch what you want</span><span class="normal-text">,</span><br>
+                <span class="emphasis" data-i18n="hero.title.emphasis">not what you have to</span>
             </h1>
-            <p>StreamGuardian uses advanced AI to detect and warn about disturbing content in real-time, giving you control over your viewing experience.</p>
-            <a href="#waitlist" class="cta-button">Join the Waitlist</a>
+            <p data-i18n="hero.description">StreamGuardian uses advanced AI to detect and warn about disturbing content in real-time, giving you control over your viewing experience.</p>
+            <a href="#waitlist" class="cta-button" data-i18n="hero.cta">Join the Waitlist</a>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Powered by Advanced AI</h2>
+            <h2 class="section-title" data-i18n="features.title">Powered by Advanced AI</h2>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>AI Content Mapping</h3>
-                    <p>Advanced machine learning algorithms pinpoint exact timestamps of explicit content (violence, drug abuse, sex, etc.), ensuring accurate and complete content mapping</p>
+                    <h3 data-i18n="features.ai.title">AI Content Mapping</h3>
+                    <p data-i18n="features.ai.description">Advanced machine learning algorithms pinpoint exact timestamps of explicit content (violence, drug abuse, sex, etc.), ensuring accurate and complete content mapping</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">⚠️</div>
-                    <h3>Instant Warnings</h3>
-                    <p>Get contextual warnings with scene descriptions and categories, allowing you to make informed decisions about whether to skip or continue watching</p>
+                    <h3 data-i18n="features.warnings.title">Instant Warnings</h3>
+                    <p data-i18n="features.warnings.description">Get contextual warnings with scene descriptions and categories, allowing you to make informed decisions about whether to skip or continue watching</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🎮</div>
-                    <h3>Full Control</h3>
-                    <p>You control what you watch. Customize your filtering preferences for violence, sexual content, language, and more to match your comfort level</p>
+                    <h3 data-i18n="features.control.title">Full Control</h3>
+                    <p data-i18n="features.control.description">You control what you watch. Customize your filtering preferences for violence, sexual content, language, and more to match your comfort level</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3>No Missed Context</h3>
-                    <p>Read a context card summarizing the skipped R-rated scene so you don't miss any important details</p>
+                    <h3 data-i18n="features.context.title">No Missed Context</h3>
+                    <p data-i18n="features.context.description">Read a context card summarizing the skipped R-rated scene so you don't miss any important details</p>
                 </div>
 
             </div>
@@ -784,25 +830,25 @@
         <div class="container">
             <div class="demo-content">
                 <div class="demo-text">
-                    <h2>See StreamGuardian in Action</h2>
-                    <p>StreamGuardian displays a warning about explicit content with context about the scene. To skip or to continue - the choice is always yours.</p>
+                    <h2 data-i18n="demo.title">See StreamGuardian in Action</h2>
+                    <p data-i18n="demo.description">StreamGuardian displays a warning about explicit content with context about the scene. To skip or to continue - the choice is always yours.</p>
                 </div>
                 
                 <div class="demo-image">
                     <div class="popup-demo">
                         <div class="popup-header">
                             <div class="warning-icon">!</div>
-                            <span class="popup-title">Content Warning</span>
+                            <span class="popup-title" data-i18n="demo.popup.title">Content Warning</span>
                         </div>
                         
                         <div class="popup-content">
-                            <h4>Combat Sequence</h4>
-                            <p>Scene Context: Main characters tear off each others fingers. Contains intense violence and disturbing imagery.</p>
+                            <h4 data-i18n="demo.popup.scene">Combat Sequence</h4>
+                            <p data-i18n="demo.popup.context">Scene Context: Main characters tear off each others fingers. Contains intense violence and disturbing imagery.</p>
                         </div>
                         
                         <div class="popup-buttons">
-                            <button class="popup-btn skip-btn">SKIP SCENE</button>
-                            <button class="popup-btn continue-btn">CONTINUE WATCHING</button>
+                            <button class="popup-btn skip-btn" data-i18n="demo.popup.skip">SKIP SCENE</button>
+                            <button class="popup-btn continue-btn" data-i18n="demo.popup.continue">CONTINUE WATCHING</button>
                         </div>
                     </div>
                 </div>
@@ -810,7 +856,7 @@
 
             <!-- Screenshots Section -->
             <div class="screenshots-section">
-                <h3 class="screenshots-title">Lights, camera, action!</h3>
+                <h3 class="screenshots-title" data-i18n="demo.screenshots.title">Lights, camera, action!</h3>
                 <div class="screenshots-container">
                     <button class="screenshot-nav prev" onclick="changeScreenshot(-1)">‹</button>
                     <button class="screenshot-nav next" onclick="changeScreenshot(1)">›</button>
@@ -836,8 +882,8 @@
         <div class="container">
             <div class="corporate-content">
                 <div class="corporate-header">
-                    <h2>API Access</h2>
-                    <p>Our goal is to help streaming platforms enhance content safety and expand global reach</p>
+                    <h2 data-i18n="corporate.title">API Access</h2>
+                    <p data-i18n="corporate.description">Our goal is to help streaming platforms enhance content safety and expand global reach</p>
                 </div>
 
                 <!-- Streaming Services Logos -->
@@ -853,26 +899,26 @@
                     <div class="benefits-grid">
                         <div class="benefit-item">
                             <div class="benefit-icon">💰</div>
-                            <h4>Revenue Protection</h4>
-                            <p>Avoid losing entire markets by filtering specific scenes instead of banning complete titles</p>
+                            <h4 data-i18n="corporate.benefits.revenue.title">Revenue Protection</h4>
+                            <p data-i18n="corporate.benefits.revenue.description">Avoid losing entire markets by filtering specific scenes instead of banning complete titles</p>
                         </div>
 
                         <div class="benefit-item">
                             <div class="benefit-icon">🌍</div>
-                            <h4>Global Expansion</h4>
-                            <p>Enter new markets with confidence, knowing your content meets local cultural and legal standards</p>
+                            <h4 data-i18n="corporate.benefits.expansion.title">Global Expansion</h4>
+                            <p data-i18n="corporate.benefits.expansion.description">Enter new markets with confidence, knowing your content meets local cultural and legal standards</p>
                         </div>
 
                         <div class="benefit-item">
                             <div class="benefit-icon">⚖️</div>
-                            <h4>Legal Compliance</h4>
-                            <p>Automatically comply with varying international content regulations and censorship requirements</p>
+                            <h4 data-i18n="corporate.benefits.compliance.title">Legal Compliance</h4>
+                            <p data-i18n="corporate.benefits.compliance.description">Automatically comply with varying international content regulations and censorship requirements</p>
                         </div>
 
                         <div class="benefit-item">
                             <div class="benefit-icon">🏆</div>
-                            <h4>Competitive Advantage</h4>
-                            <p>Offer superior content safety tools that differentiate your platform in the competitive streaming market</p>
+                            <h4 data-i18n="corporate.benefits.advantage.title">Competitive Advantage</h4>
+                            <p data-i18n="corporate.benefits.advantage.description">Offer superior content safety tools that differentiate your platform in the competitive streaming market</p>
                         </div>
                     </div>
                 </div>
@@ -883,25 +929,25 @@
     <!-- Use Cases Section -->
     <section class="use-cases">
         <div class="container">
-            <h2 class="section-title">Who Benefits from StreamGuardian?</h2>
+            <h2 class="section-title" data-i18n="usecases.title">Who Benefits from StreamGuardian?</h2>
             
             <div class="use-cases-grid">
                 <div class="use-case">
                     <div class="use-case-icon">👨‍👩‍👧‍👦</div>
-                    <h3>Families & Parents</h3>
-                    <p>Protect children and sensitive viewers from unexpected disturbing content while maintaining family movie nights and shared viewing experiences.</p>
+                    <h3 data-i18n="usecases.families.title">Families & Parents</h3>
+                    <p data-i18n="usecases.families.description">Protect children and sensitive viewers from unexpected disturbing content while maintaining family movie nights and shared viewing experiences.</p>
                 </div>
                 
                 <div class="use-case">
                     <div class="use-case-icon">🏢</div>
-                    <h3>Content Corporations</h3>
-                    <p>Ensure your content meets local regulations and cultural standards when expanding to new markets, avoiding costly compliance issues.</p>
+                    <h3 data-i18n="usecases.corporations.title">Content Corporations</h3>
+                    <p data-i18n="usecases.corporations.description">Ensure your content meets local regulations and cultural standards when expanding to new markets, avoiding costly compliance issues.</p>
                 </div>
                 
                 <div class="use-case">
                     <div class="use-case-icon">🛡️</div>
-                    <h3>Sensitive Viewers</h3>
-                    <p>Individuals with PTSD, anxiety, or other conditions can enjoy entertainment without unexpected triggers or disturbing content.</p>
+                    <h3 data-i18n="usecases.sensitive.title">Sensitive Viewers</h3>
+                    <p data-i18n="usecases.sensitive.description">Individuals with PTSD, anxiety, or other conditions can enjoy entertainment without unexpected triggers or disturbing content.</p>
                 </div>
             </div>
         </div>
@@ -910,20 +956,271 @@
     <!-- CTA Section -->
     <section class="cta-section" id="waitlist">
         <div class="container">
-            <h2>Ready to Take Control?</h2>
-            <p>Join users waiting for early access to StreamGuardian. Be among the first to experience safer, more comfortable streaming.</p>
-            <button class="cta-button" onclick="joinWaitlist()">Join the Waitlist</button>
+            <h2 data-i18n="cta.title">Ready to Take Control?</h2>
+            <p data-i18n="cta.description">Join users waiting for early access to StreamGuardian. Be among the first to experience safer, more comfortable streaming.</p>
+            <button class="cta-button" onclick="joinWaitlist()" data-i18n="cta.button">Join the Waitlist</button>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 StreamGuardian. All rights reserved. Formerly known as MoveIt.</p>
+            <p data-i18n="footer.copyright">&copy; 2025 StreamGuardian. All rights reserved. Formerly known as MoveIt.</p>
         </div>
     </footer>
 
     <script>
+        // Internationalization System
+        const translations = {
+            en: {
+                nav: {
+                    features: "Features",
+                    demo: "Demo",
+                    corporate: "Corporate",
+                    waitlist: "Join Waitlist"
+                },
+                hero: {
+                    title: {
+                        highlight: "Watch what you want",
+                        emphasis: "not what you have to"
+                    },
+                    description: "StreamGuardian uses advanced AI to detect and warn about disturbing content in real-time, giving you control over your viewing experience.",
+                    cta: "Join the Waitlist"
+                },
+                features: {
+                    title: "Powered by Advanced AI",
+                    ai: {
+                        title: "AI Content Mapping",
+                        description: "Advanced machine learning algorithms pinpoint exact timestamps of explicit content (violence, drug abuse, sex, etc.), ensuring accurate and complete content mapping"
+                    },
+                    warnings: {
+                        title: "Instant Warnings",
+                        description: "Get contextual warnings with scene descriptions and categories, allowing you to make informed decisions about whether to skip or continue watching"
+                    },
+                    control: {
+                        title: "Full Control",
+                        description: "You control what you watch. Customize your filtering preferences for violence, sexual content, language, and more to match your comfort level"
+                    },
+                    context: {
+                        title: "No Missed Context",
+                        description: "Read a context card summarizing the skipped R-rated scene so you don't miss any important details"
+                    }
+                },
+                demo: {
+                    title: "See StreamGuardian in Action",
+                    description: "StreamGuardian displays a warning about explicit content with context about the scene. To skip or to continue - the choice is always yours.",
+                    popup: {
+                        title: "Content Warning",
+                        scene: "Combat Sequence",
+                        context: "Scene Context: Main characters tear off each others fingers. Contains intense violence and disturbing imagery.",
+                        skip: "SKIP SCENE",
+                        continue: "CONTINUE WATCHING"
+                    },
+                    screenshots: {
+                        title: "Lights, camera, action!"
+                    }
+                },
+                corporate: {
+                    title: "API Access",
+                    description: "Our goal is to help streaming platforms enhance content safety and expand global reach",
+                    benefits: {
+                        revenue: {
+                            title: "Revenue Protection",
+                            description: "Avoid losing entire markets by filtering specific scenes instead of banning complete titles"
+                        },
+                        expansion: {
+                            title: "Global Expansion",
+                            description: "Enter new markets with confidence, knowing your content meets local cultural and legal standards"
+                        },
+                        compliance: {
+                            title: "Legal Compliance",
+                            description: "Automatically comply with varying international content regulations and censorship requirements"
+                        },
+                        advantage: {
+                            title: "Competitive Advantage",
+                            description: "Offer superior content safety tools that differentiate your platform in the competitive streaming market"
+                        }
+                    }
+                },
+                usecases: {
+                    title: "Who Benefits from StreamGuardian?",
+                    families: {
+                        title: "Families & Parents",
+                        description: "Protect children and sensitive viewers from unexpected disturbing content while maintaining family movie nights and shared viewing experiences."
+                    },
+                    corporations: {
+                        title: "Content Corporations",
+                        description: "Ensure your content meets local regulations and cultural standards when expanding to new markets, avoiding costly compliance issues."
+                    },
+                    sensitive: {
+                        title: "Sensitive Viewers",
+                        description: "Individuals with PTSD, anxiety, or other conditions can enjoy entertainment without unexpected triggers or disturbing content."
+                    }
+                },
+                cta: {
+                    title: "Ready to Take Control?",
+                    description: "Join users waiting for early access to StreamGuardian. Be among the first to experience safer, more comfortable streaming.",
+                    button: "Join the Waitlist"
+                },
+                footer: {
+                    copyright: "© 2025 StreamGuardian. All rights reserved. Formerly known as MoveIt."
+                },
+                alerts: {
+                    emailPrompt: "Enter your email to join the waitlist:",
+                    thankYou: "Thank you for joining the StreamGuardian waitlist! We'll notify you when early access is available.",
+                    invalidEmail: "Please enter a valid email address."
+                }
+            },
+            fr: {
+                nav: {
+                    features: "Fonctionnalités",
+                    demo: "Démo",
+                    corporate: "Entreprise",
+                    waitlist: "Rejoindre la Liste"
+                },
+                hero: {
+                    title: {
+                        highlight: "Regardez ce que vous voulez",
+                        emphasis: "pas ce que vous devez"
+                    },
+                    description: "StreamGuardian utilise une IA avancée pour détecter et avertir du contenu dérangeant en temps réel, vous donnant le contrôle sur votre expérience de visionnage.",
+                    cta: "Rejoindre la Liste d'Attente"
+                },
+                features: {
+                    title: "Alimenté par une IA Avancée",
+                    ai: {
+                        title: "Cartographie de Contenu IA",
+                        description: "Des algorithmes d'apprentissage automatique avancés identifient les horodatages exacts du contenu explicite (violence, abus de drogues, sexe, etc.), garantissant une cartographie de contenu précise et complète"
+                    },
+                    warnings: {
+                        title: "Avertissements Instantanés",
+                        description: "Obtenez des avertissements contextuels avec des descriptions de scènes et des catégories, vous permettant de prendre des décisions éclairées sur le fait de passer ou de continuer à regarder"
+                    },
+                    control: {
+                        title: "Contrôle Total",
+                        description: "Vous contrôlez ce que vous regardez. Personnalisez vos préférences de filtrage pour la violence, le contenu sexuel, le langage, et plus encore pour correspondre à votre niveau de confort"
+                    },
+                    context: {
+                        title: "Aucun Contexte Manqué",
+                        description: "Lisez une carte de contexte résumant la scène classée R ignorée pour ne manquer aucun détail important"
+                    }
+                },
+                demo: {
+                    title: "Voir StreamGuardian en Action",
+                    description: "StreamGuardian affiche un avertissement sur le contenu explicite avec le contexte de la scène. Passer ou continuer - le choix vous appartient toujours.",
+                    popup: {
+                        title: "Avertissement de Contenu",
+                        scene: "Séquence de Combat",
+                        context: "Contexte de la Scène : Les personnages principaux s'arrachent les doigts. Contient de la violence intense et des images dérangeantes.",
+                        skip: "PASSER LA SCÈNE",
+                        continue: "CONTINUER À REGARDER"
+                    },
+                    screenshots: {
+                        title: "Lumières, caméra, action !"
+                    }
+                },
+                corporate: {
+                    title: "Accès API",
+                    description: "Notre objectif est d'aider les plateformes de streaming à améliorer la sécurité du contenu et à étendre leur portée mondiale",
+                    benefits: {
+                        revenue: {
+                            title: "Protection des Revenus",
+                            description: "Évitez de perdre des marchés entiers en filtrant des scènes spécifiques au lieu d'interdire des titres complets"
+                        },
+                        expansion: {
+                            title: "Expansion Mondiale",
+                            description: "Entrez sur de nouveaux marchés en toute confiance, sachant que votre contenu respecte les normes culturelles et légales locales"
+                        },
+                        compliance: {
+                            title: "Conformité Légale",
+                            description: "Respectez automatiquement les réglementations internationales variables sur le contenu et les exigences de censure"
+                        },
+                        advantage: {
+                            title: "Avantage Concurrentiel",
+                            description: "Offrez des outils de sécurité de contenu supérieurs qui différencient votre plateforme sur le marché concurrentiel du streaming"
+                        }
+                    }
+                },
+                usecases: {
+                    title: "Qui Bénéficie de StreamGuardian ?",
+                    families: {
+                        title: "Familles et Parents",
+                        description: "Protégez les enfants et les spectateurs sensibles du contenu dérangeant inattendu tout en maintenant les soirées cinéma en famille et les expériences de visionnage partagées."
+                    },
+                    corporations: {
+                        title: "Entreprises de Contenu",
+                        description: "Assurez-vous que votre contenu respecte les réglementations locales et les normes culturelles lors de l'expansion vers de nouveaux marchés, évitant les problèmes de conformité coûteux."
+                    },
+                    sensitive: {
+                        title: "Spectateurs Sensibles",
+                        description: "Les personnes souffrant de SSPT, d'anxiété ou d'autres conditions peuvent profiter du divertissement sans déclencheurs inattendus ou contenu dérangeant."
+                    }
+                },
+                cta: {
+                    title: "Prêt à Prendre le Contrôle ?",
+                    description: "Rejoignez les utilisateurs en attente d'un accès anticipé à StreamGuardian. Soyez parmi les premiers à expérimenter un streaming plus sûr et plus confortable.",
+                    button: "Rejoindre la Liste d'Attente"
+                },
+                footer: {
+                    copyright: "© 2025 StreamGuardian. Tous droits réservés. Anciennement connu sous le nom de MoveIt."
+                },
+                alerts: {
+                    emailPrompt: "Entrez votre email pour rejoindre la liste d'attente :",
+                    thankYou: "Merci de rejoindre la liste d'attente StreamGuardian ! Nous vous notifierons quand l'accès anticipé sera disponible.",
+                    invalidEmail: "Veuillez entrer une adresse email valide."
+                }
+            }
+        };
+
+        let currentLanguage = localStorage.getItem('streamguardian-language') || 'en';
+
+        // Initialize language system
+        function initializeLanguage() {
+            updateLanguage(currentLanguage);
+            updateLanguageButtons();
+        }
+
+        // Update all text content based on current language
+        function updateLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('streamguardian-language', lang);
+            document.getElementById('html-root').setAttribute('lang', lang);
+
+            // Update all elements with data-i18n attributes
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getNestedTranslation(translations[lang], key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+        }
+
+        // Get nested translation using dot notation
+        function getNestedTranslation(obj, path) {
+            return path.split('.').reduce((current, key) => current && current[key], obj);
+        }
+
+        // Update language button states
+        function updateLanguageButtons() {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === currentLanguage) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Language button event listeners
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                updateLanguage(lang);
+                updateLanguageButtons();
+            });
+        });
+
+        // Screenshot functionality
         let currentScreenshot = 0;
         const screenshots = document.querySelectorAll('.screenshot');
         const screenshotDots = document.querySelectorAll('.screenshot-dot');
@@ -965,15 +1262,19 @@
             });
         });
 
-        // Waitlist functionality
+        // Waitlist functionality with internationalization
         function joinWaitlist() {
-            const email = prompt('Enter your email to join the waitlist:');
+            const emailPrompt = getNestedTranslation(translations[currentLanguage], 'alerts.emailPrompt');
+            const thankYou = getNestedTranslation(translations[currentLanguage], 'alerts.thankYou');
+            const invalidEmail = getNestedTranslation(translations[currentLanguage], 'alerts.invalidEmail');
+
+            const email = prompt(emailPrompt);
             if (email && email.includes('@')) {
-                alert('Thank you for joining the StreamGuardian waitlist! We\'ll notify you when early access is available.');
+                alert(thankYou);
                 // Here you would typically send the email to your backend
                 console.log('Waitlist signup:', email);
             } else if (email) {
-                alert('Please enter a valid email address.');
+                alert(invalidEmail);
             }
         }
 
@@ -985,6 +1286,11 @@
             } else {
                 header.style.background = 'rgba(10, 10, 10, 0.95)';
             }
+        });
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeLanguage();
         });
     </script>
 </body>
